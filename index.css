@@ -17,6 +17,16 @@
     gap: 2rem;
 }
 
+.write-up-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    gap: 2rem;
+}
+
 .text-block, 
 ol, 
 li {
@@ -33,12 +43,33 @@ li {
 .image {
     width: 80%;
     border: 0.5px solid black;
-    /* border: 0px; */
 }
 
 .intro-header {
-    font-size: 3rem;
-    font-weight: 700;
+    font-size: 4.5rem;
+    font-weight: 900;
     margin: 0rem;
     padding: 0rem;
+    text-align: center;
+}
+
+.video-header, .write-up-header {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0rem;
+    /* text-decoration-line: underline; */
+}
+
+.demo-video {
+    border: 0.57px solid black;
+    margin-top: 0.5rem;
+}
+
+.video-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
 }
