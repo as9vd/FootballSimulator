@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700&display=swap" rel="stylesheet">
 </head>
 <div class="container">
-    <h1 class="intro-header">Football Simulator Game: Save the World</h1>
+    <h1 class="intro-header">Football Simulator Game: Save the World 🌍 (Version 1.0)</h1>
     <p class="text-block">
         Hello, my name is Asad. Today, I'm presenting something 
         I worked on during the 2nd semester of the 2022-23 school year.
@@ -195,6 +195,43 @@
         I was chuffed with my results. Unfortunately, based on the nature of deep learning,
         the model would return the same values for each number of goals, 
         but I created a helper function in my API that varied the resulting values a bit.
+        Finally, I finished all the training. Thank goodness. Time to introduce the interactive aspects of the game.
     </p>
-    <!-- <p class="text-block">The player pool were players from FIFAs 21-23.</p> -->
+    <p class="text-block">
+        The player pool consists of players from FIFA 21 to FIFA 23. I limited it to these three games because I didn't want inaccurate ratings.
+        Much like how Jerome Boateng had his ratings vary wildly through the 9 years, so did basically every other player.
+        That is why I only limited it to a 3-year window. Also, I wanted it to be somewhat "with the times" as well. 
+        Here's what the interface looked like, which is what I modelled the selection page off of.
+    </p>
+    <img class="image" src="media/Interface.png" alt="Interface">
+    <p class="text-block">
+        That was pretty much it for the data gathering and cleaning. Now, I began to create the React app and the Flask API.
+        The React app.. I won't get into detail. Just look at the video(s) if you want to see what the frontend looked like.
+        The Flask API was fairly simple. For each step on the website, I had a corresponding API call that provided the functionality.
+        For example, below is the endpoint I used to get the final score for the rounds.
+    </p>
+    <img class="image" src="media/GetResultEndpoint.png" alt="Result Endpoint">
+    <p class="text-block">
+        I had a similar function/endpoint for getting the total shots on and off target. 
+        Beyond that, the other highlights of the API were getting the pool of players and generating the random teams.
+        For each position in the formation the user chooses, 7 random players are shown as options, and when the players are picked, they're removed from the pool permanently.
+        This means the bots won't accidentally take one of the user's players for a second time, thankfully.
+    </p>
+    <img class="image" src="media/PoolCode.png" alt="Pool of Players Code">
+    <p class="text-block">
+        Anyway, that's pretty much it for the functionality of the program. 
+        In my modest opinion, I think it was a very good project. I could've made it even better had I (amongst many other things):
+    </p>
+    <ol>
+        <li>Sprinkled in some interesting match logic in the simulation pages (e.g. not just displaying goals and full-time whistle).</li>
+        <li>Offered the ability to choose through managers and have that impact results as well.</li>
+        <li>Shown player faces in the pool (tried doing it with 8-bit images using pyxlate, but my computer couldn't hack it).</li>
+        <li>Deployed it using AWS as I did another project, so others could play the game too (£££).</li>
+    </ol>
+    <p class="text-block">
+        Some other considerations too, like cleaning up the code a bit, but I'm just happy the project is complete. 
+        I also completed another football-related project I worked on at the same time too; I'll probably make another one of these for that.
+        Anyway, thank you for your time. I believe I will improve upon this project sometime in the near future and put out an even better product,
+        this time for the public. But that'll be for another day.
+    </p>
 </div>
