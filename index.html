@@ -19,39 +19,42 @@
         each employing a unique formation and the best possible players from their assigned pool.
     </p>
     <p class="text-block">
-        How did I get this idea? Well, I created a <a class="text-block" href="https://github.com/as9vd/AlienFootballSimulator">text-based football simulator</a> in the past (my 1st semester at uni).
+        How did I get this idea? Well, it was based on a project I had created <a class="text-block" href="https://github.com/as9vd/AlienFootballSimulator">in the past</a> (my 1st semester at uni).
         It was my first real coding project, and I loved every minute of it, because A) I love football, B) I like coding, 
         and C) I really like statistics, game theory, decision trees, etc. 
         However, the quality of the code was quite poor. For example,
-        look below at the code I used to validate a player's selection (in these 2 instances, 
-        I was checking if the input somewhat resembled Timo Werner or Raul Jimenez):
+        look below to see the impenetrable strategy I used to validate selections (in these 2 instances, 
+        I was checking if the input somewhat resembled 'Timo Werner' or 'Raul Jimenez'):
     </p>
     <img class="image" src="media/LackOfTrie.png" alt="Lack of Tries">
     <p class="text-block">
-        🙈 This is why algorithms are important. Had I learned about tries/prefix trees, 
-        I would've avoided writing 600+ lines of poor code like that (yes, I did that for every single player).
+        🙈 This is why algorithms are important. Had I known about tries/prefix trees/enums/etc., 
+        I would've avoided writing 1000+ lines of poor quality code like this (yes, I did that for every single player).
         Thankfully, having taken multiple classes on algorithms since, and having done my own independent study of algorithms,
-        I now know the way. I actually utilised tries heavily in another project I worked on this semester, but I will save that chat for a later github.io page.
-        Regardless, I appreciate the efforts and zeal of my past self, as without this past work, 
+        I now know the way. In fact, I actually utilised tries heavily in another project I worked on this semester, 
+        but I will save that chat for a later github.io page.
+        Regardless, I appreciate the efforts and zeal of my past self, as without my inferior past work, 
         I wouldn't have been able to complete this massively superior project.
     </p>
     <p class="text-block">
-        In the words of esteemed artist Prodigy (rest in peace), let me start from the beginning, at the top of the list.
-        To start, I wanted to get historical lineups from the past 5 years of all the top leagues (Bundesliga, Premier League, Serie A, Ligue 1, and La Liga),
-        and utilise this information via deep learning to predict football matches, given 2 random teams. 
-        However, I needed something a bit extra to assign a certain quality value to a team. 
-        Unfortunately, there's nothing in these kinds of records that can singlehandedly measure a team's true quality.
-        At first thought, scorelines could be a valid measure, but that's not always the case. 
-        For example, look at the image below:
+        In the words of esteemed artist Prodigy, let me start from the beginning, at the top of the list.
+        First, I wanted to get historical lineups from the past 5 years of all the top leagues (Bundesliga, Premier League, Serie A, Ligue 1, and La Liga),
+        and use deep learning to predict football matches, given 2 teams of differing qualities. 
+        However, I needed to find a way to measure the quality of a team. In typical match data, there is nothing that fits the bill.
+        Naive thinking might lead one to believe that scorelines and shots on target are enough across seasons are enough to differentiate the best sides from the worst, 
+        but that's not the case. 
+        For example, look at the result below:
     </p>
     <img class="image" src="media/BradfordChelsea.png" alt="Bradford vs. Chelsea">
     <p class="text-block">
-        Okay, so two teams played each other in a tournament, with one ultimately staging an incredible comeback from 2-0 down, away from home, to win 4-2.
-        Big deal. Impressive, but this happens fairly often in sports.
-        But, at the time, Bradford City were in the 3rd division of English football,
+        To the uninitiated, the fact that I've brought this up might seem a bit confusing. 
+        One team came back from 2-0 down to beat another team 4-2. Impressive, but this happens relatively often. 
+        So what's the big deal? Well, at the time, Bradford City were in the 3rd division of English football,
         where they ultimately finished 7th place (and they are now in the 4th division). Chelsea, on the other hand,
         were in the 1st division (Premier League) and top of the table at the time,
-        ultimately winning the league in dominant fashion. Additionally, they fielded the team below:
+        ultimately winning the league in dominant fashion. Additionally, Chelsea are (unfortunately) a big club that have won 2 European Cups
+        and 5 1st division titles. They are a much, much bigger side than Bradford City, who are no where near Chelsea's size or stature.
+        Furthermore, Chelsea fielded the team below:
     </p>
     <img class="image" style="width: 275px !important; height: 275px;" src="media/BradfordChelseaLineup.png" alt="Lineup">
     <p class="text-block">
@@ -62,20 +65,27 @@
         and they had enough firepower to smash Bradford 4 or 5 nil.  
     </p>
     <p class="text-block">
-        But, this is football, and these shock results happen fairly often. 
-        So we cannot use them, or shots on target, or possession, or any of these other (fairly) arbitrary statistics to measure a team's quality. 
-        Instead, I decided to use FIFA ratings for individual players and map them to historical match data to correlate 
-        shots, possession, fouls, and goals with the quality of a side. I downloaded some CSV sets off of Kaggle for the past 9 FIFA games.
+        But, this is football. Shock results happen fairly often (usually not this level of shock though), so aggregating goals and shots is not the best strategy.
+        So we cannot use goals scored, or shots on target, or possession, or any of these other (fairly) arbitrary statistics to reliably measure a team's quality. 
+        I really thought measuring goals scored across seasons would be a decent measure of a team's quality, but it really does not work for lesser leagues.
+        APOEL, a team in the Cypriot First Division, regularly demolish their domestic opposition, 
+        but they, in turn, get battered by foreign opposition in the Champions League.
+        Instead, I did something I was more comfortable with.
+        I decided to use the FIFA ratings of individual players and map them to historical match data to correlate 
+        shots, possession, fouls, and goals with the quality of a side/collection of players. 
+        I downloaded some CSV sets off of Kaggle for the past 9 FIFA games.
     </p>
     <img class="image" style="width: 188px !important; height: 150px;" src="media/FifaCSVs.png" alt="CSVs">
     <p class="text-block">
-        For the lineup information, I used api-football.com. Basically, I used the API to get fixtures from the 15-16 season onward, 
+        For the lineup information, I used api-football.com. I used this API to get fixture data from the 15-16 season onward, 
         matching the FIFA data. From the fixtures, I collected the stats associated with each individual match (e.g. shots on target, fouls, goals, etc.),
-        but I had to make separate API calls to each fixture in order to collect the lineups associated with each match. 
+        but I had to make separate calls to the fixture endpoint in order to collect the lineups associated with each match. 
         I then mapped the player ratings from the FIFA CSVs to the lineups. Firstly, this was quite a challenge, because I imported 2 sets of CSVs.
         The first set had players' full names (e.g. instead of Cristiano Ronaldo, it was Cristiano Ronaldo dos Santos Aveiro), 
         whilst the second set had players' "colloquial" names (e.g. the reverse). 
         So, I created a dictionary/JSON file mapping these two sets of names to one another to ensure a seamless mapping of ratings to line-ups.
+        Additionally, different spellings of names and the inclusion/exclusion of accents proved to be obstacles, 
+        but I overcame them through hardcoding solutions.
     </p>
     <p class="text-block">
         Secondly, FIFA player ratings can vary widely through the years, especially across the span of 9 FIFA games. For example, 
@@ -83,24 +93,29 @@
     </p>
     <img class="image" style="width: 356px !important; height: 200px;" src="media/JeromeBoateng.jpeg" alt="Jerome Boateng">
     <p class="text-block">
-        On his day, he was a magnificent player. 
+        On his day, he was a magnificent player. Legendary footballer. 
+        2 time European Cup winner, World Cup winner, and I don't even know how many Bundesliga titles he's won. 
         In FIFA 15, he was the highest-rated centre-half in the game, and rightfully so.
         In FIFA 16, he was the second highest-rated, just behind Thiago Silva, who was only 1 point above him.
         Then, in FIFA 17, he was the highest-rated centre-half in the game, with an incredibly rare rating of 90.
         Guy was incredible in his prime. Quick, strong, fantastic at playing out from the back, and a very, very good leader.
+        The only stain on his footballing career is that he played for Manchester City in the past (🤮).
     </p>
     <img class="image" style="width: 396px !important; height: 230px;" src="media/BoatengRatings.png" alt="Jerome Boateng Ratings">
     <p class="text-block">
         Unfortunately, nowadays, he's a bit crap. Having suffered serious injuries during his last few seasons at Bayern Munich, 
         starting in the 2016-17 season, 
         he began to lose his pace and athleticism. In the 2018-19 season, he eventually fell behind Mats Hummels and Nicklas Sule in the pecking order.
-        He also had a disastrous 2018 World Cup.
+        He also had a disastrous 2018 World Cup. He was poor in the 2 matches he played, and he even got sent off in a must-win match against Sweden.
+        Overall, Germany's World Cup performance was shocking, and it pretty much ended his national team career, 
+        as it also (temporarily) did the likes of Mats Hummels and Thomas Muller.
     </p>
-    <video controls="controls" muted="muted" src="media/BoatengRed.mp4" type="video/mp4"></video>
+    <video controls="controls" src="media/BoatengRed.mp4" type="video/mp4"></video>
     <p class="text-block">
         He had a bit of a renaissance year in the 2019-2020 season, as Bayern Munich won the treble, 
         but since then, he's just not been the same player. 
-        He's constantly cocking up in big matches, and Lyon are looking to get rid of him.
+        He's constantly making errors in big matches, he's getting slower, and Lyon are looking to get rid of him.
+        Not a good end to such an incredible career.
     </p>
     <img class="image" src="media/BoatengNow.png" alt="Jerome Boateng Rating Now">
     <p class="text-block">
@@ -108,7 +123,7 @@
         and he's generally not a good bloke in his private life, so no, I don't like him.
         The reason I've just went on this tangent about Boateng is because he has changed as a player through the years,
         in a bad way. If I am mapping ratings to Lyon matches, it is not fair that I map Boateng's FIFA 17 rating, when he was fantastic for Bayern Munich,
-        to a Ligue 1 match in 2023, in which he's been performing like crap.
+        to a Ligue 1 match in 2023, in which he likely performed poorly.
         He doesn't perform like a 90-rated player anymore (no where near actually), 
         so I can't just greedily take the first rating I see and defile the fixture with inaccurate data. 
     </p>
@@ -129,7 +144,8 @@
     <p class="text-block">
         It was class. I did this for England, France, Germany, Italy, and Spain (and a couple other lesser known leagues), 
         each for 5 separate seasons, and ended up with a dataframe of over 26k+ rows.
-        I also separated the ratings based on position. See the table below for an example dataframe, 
+        I also extended the columns a bit, separating the ratings by position. 
+        See the table below for an example dataframe, 
         consisting of fixtures in which the away team's quality was much, much higher than that of the home team's.
     </p>
     <img class="image" style="width: 330px !important; height: 200px;" src="media/Domination.png" alt="Pandas DF of Domination">
@@ -140,17 +156,17 @@
         Quite a poor showing for them, but in the vast majority of the rows, the dominant team leathered the inferior team.
     </p>
     <p class="text-block">
-        But, that one 2-1 loss haunted me; I couldn't sleep. How would I be able to produce such shock results with only one model?
+        But, that one 2-1 loss haunted me; I couldn't sleep. How would I be able to replicate such shock results with only one model?
         From then on, I knew one wouldn't be enough. 
         Football is random. 99 times out of 100, Manchester City would demolish Burton Albion. But, on that 1 sole occasion,
-        Burton Albion would do enough to hold them to a 0-0 draw at the Emptyhad. That's just the way the sport is. 
+        Burton Albion would do enough to hold them to a 0-0 draw at the Etihad. That's just the way the sport is. 
         Pretty much every other time though, 
-        it would end up <a class="text-block" href="https://www.bbc.com/sport/football/46732982">like it did</a> the last time these played one another at the Emptyhad.
+        it would end up <a class="text-block" href="https://www.bbc.com/sport/football/46732982">like it did</a> the last time these played one another at the Etihad.
     </p>
     <img class="image" style="width: 312px !important; height: 200px;" src="media/BurtonCity.jpeg" alt="Burton vs. Manchester City">
     <p class="text-block">
         Based on the axiom above, multiple models were needed. And, knowing what I know about football,
-        I came to the conclusion that there are 4 types of fixtures:
+        I came to the conclusion that there are 4 types of fixtures I needed to account for:
     </p>
     <ol>
         <li>High goals scored, high accuracy (e.g. Barcelona 9 - 0 Blyth Spartans, Chelsea 4 - 1 Southampton, Woking 2 - 2 Solihul Moors, Juventus 3 - 0 Genoa, Inter 3 - 2 Milan).</li>
@@ -160,7 +176,7 @@
     </ol>
     <p class="text-block">
         In terms of frequency, scenarios 1 and 3 are perhaps the most common in world football, likely covering 70% of fixtures a week in any given league.
-        Scenario 4 does happen fairly often as well, but not as often as the other two. 
+        Scenario 4 happens fairly often as well, but not as often as the other two. 
         And scenario 2 is just peak. It's something that happens infrequently, and when it does happen, the entire footballing world laughs.
         Examples of that would be Everton smashing City 4-0 a few years back, Chelsea getting bossed by Bradford City (as seen earlier), 
         and Manchester United taking a 7-0 hiding off Liverpool a few months ago (😢). 
@@ -185,7 +201,7 @@
     </p>
     <ol>
         <li>Low goals, low on target, low shots total (🥱).</li>
-        <li>Low goals, high on target, high shots total (e.g. a bar fight ).</li>
+        <li>Low goals, high on target, high shots total (e.g. a bar fight).</li>
         <li>Low goals, low on target, high shots total (e.g. a poor quality match 🚮).</li>
         <li>High goals, high on target, low shots total (e.g. very clinical performances).</li>
         <li>High goals, high on target, high shots total (e.g. an all-out brawl).</li>
@@ -207,7 +223,7 @@
     <p class="text-block">
         That was pretty much it for the data gathering and cleaning. Now, I began to create the React app and the Flask API.
         The React app.. I won't get into detail. Just look at the video(s) if you want to see what the frontend looked like.
-        The Flask API was fairly simple. For each step on the website, I had a corresponding API call that provided the functionality.
+        The Flask API was fairly simple. For each step on the website, I had a corresponding API call that supplied the functionality.
         For example, below is the endpoint I used to get the final score for the rounds.
     </p>
     <img class="image" src="media/GetResultEndpoint.png" alt="Result Endpoint">
@@ -231,7 +247,7 @@
     <p class="text-block">
         Some other considerations too, like cleaning up the code a bit, but I'm just happy the project is complete. 
         I also completed another football-related project I worked on at the same time too; I'll probably make another one of these for that.
-        Anyway, thank you for your time. I believe I will improve upon this project sometime in the near future and put out an even better product,
-        this time for the public. But that'll be for another day.
+        Anyway, thank you for your time. I believe I will improve upon this project sometime in the near future and put out an even better product (hence the "Version 1.0"). 
+        But that'll be for another day! ☀️
     </p>
 </div>
