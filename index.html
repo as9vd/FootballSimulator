@@ -26,7 +26,7 @@
         look below at the code I used to validate a player's selection (in these 2 instances, 
         I was checking if the input somewhat resembled Timo Werner or Raul Jimenez):
     </p>
-    <img class="image" src="LackOfTrie.png" alt="Lack of Tries">
+    <img class="image" src="media/LackOfTrie.png" alt="Lack of Tries">
     <p class="text-block">
         🙈 This is why algorithms are important. Had I learned about tries/prefix trees, 
         I would've avoided writing 600+ lines of poor code like that (yes, I did that for every single player).
@@ -44,7 +44,7 @@
         At first thought, scorelines could be a valid measure, but that's not always the case. 
         For example, look at the image below:
     </p>
-    <img class="image" src="BradfordChelsea.png" alt="Bradford vs. Chelsea">
+    <img class="image" src="media/BradfordChelsea.png" alt="Bradford vs. Chelsea">
     <p class="text-block">
         Okay, so two teams played each other in a tournament, with one ultimately staging an incredible comeback from 2-0 down, away from home, to win 4-2.
         Big deal. Impressive, but this happens fairly often in sports.
@@ -53,7 +53,7 @@
         were in the 1st division (Premier League) and top of the table at the time,
         ultimately winning the league in dominant fashion. Additionally, they fielded the team below:
     </p>
-    <img class="image" style="width: 275px !important; height: 275px;" src="BradfordChelseaLineup.png" alt="Lineup">
+    <img class="image" style="width: 275px !important; height: 275px;" src="media/BradfordChelseaLineup.png" alt="Lineup">
     <p class="text-block">
         They had 3 world-class players on the pitch (Hazard, Cesc, Azpilicueta), along with various other quality players (Ramires, Oscar, Remy, Willian, Cahill).
         Even the likes of Salah and Zouma, both of whom were fairly underwhelming for Chelsea (to be fair to Zouma, he suffered an ACL injury early on during his time there), 
@@ -67,7 +67,7 @@
         Instead, I decided to use FIFA ratings for individual players and map them to historical match data to correlate 
         shots, possession, fouls, and goals with the quality of a side. I downloaded some CSV sets off of Kaggle for the past 9 FIFA games.
     </p>
-    <img class="image" style="width: 188px !important; height: 150px;" src="FifaCSVs.png" alt="CSVs">
+    <img class="image" style="width: 188px !important; height: 150px;" src="media/FifaCSVs.png" alt="CSVs">
     <p class="text-block">
         For the lineup information, I used api-football.com. Basically, I used the API to get fixtures from the 15-16 season onward, 
         matching the FIFA data. From the fixtures, I collected the stats associated with each individual match (e.g. shots on target, fouls, goals, etc.),
@@ -81,7 +81,7 @@
         Secondly, FIFA player ratings can vary widely through the years, especially across the span of 9 FIFA games. For example, 
         below is Jerome Boateng:
     </p>
-    <img class="image" style="width: 356px !important; height: 200px;" src="JeromeBoateng.jpeg" alt="Jerome Boateng">
+    <img class="image" style="width: 356px !important; height: 200px;" src="media/JeromeBoateng.jpeg" alt="Jerome Boateng">
     <p class="text-block">
         On his day, he was a magnificent player. 
         In FIFA 15, he was the highest-rated centre-half in the game, and rightfully so.
@@ -89,26 +89,26 @@
         Then, in FIFA 17, he was the highest-rated centre-half in the game, with an incredibly rare rating of 90.
         Guy was incredible in his prime. Quick, strong, fantastic at playing out from the back, and a very, very good leader.
     </p>
-    <img class="image" style="width: 396px !important; height: 230px;" src="BoatengRatings.png" alt="Jerome Boateng Ratings">
+    <img class="image" style="width: 396px !important; height: 230px;" src="media/BoatengRatings.png" alt="Jerome Boateng Ratings">
     <p class="text-block">
         Unfortunately, nowadays, he's a bit crap. Having suffered serious injuries during his last few seasons at Bayern Munich, 
         starting in the 2016-17 season, 
         he began to lose his pace and athleticism. In the 2018-19 season, he eventually fell behind Mats Hummels and Nicklas Sule in the pecking order.
         He also had a disastrous 2018 World Cup.
     </p>
-    <video controls="controls" muted="muted" src="BoatengRed.mp4" type="video/mp4"></video>
+    <video controls="controls" muted="muted" src="media/BoatengRed.mp4" type="video/mp4"></video>
     <p class="text-block">
         He had a bit of a renaissance year in the 2019-2020 season, as Bayern Munich won the treble, 
         but since then, he's just not been the same player. 
         He's constantly cocking up in big matches, and Lyon are looking to get rid of him.
     </p>
-    <img class="image" src="BoatengNow.png" alt="Jerome Boateng Rating Now">
+    <img class="image" src="media/BoatengNow.png" alt="Jerome Boateng Rating Now">
     <p class="text-block">
         The reason I've just written all of that is not because I like Jerome Boateng. He played for Manchester City, 
         and he's generally not a good bloke in his private life, so no, I don't like him.
         The reason I've just went on this tangent about Boateng is because he has changed as a player through the years,
-        in a bad way. If I am mapping ratings to Lyon matches, it is not fair that I map Boateng's FIFA 17 rating, when he played in the Bundesliga for Bayern Munich,
-        to a Ligue 1 match in 2023.
+        in a bad way. If I am mapping ratings to Lyon matches, it is not fair that I map Boateng's FIFA 17 rating, when he was fantastic for Bayern Munich,
+        to a Ligue 1 match in 2023, in which he's been performing like crap.
         He doesn't perform like a 90-rated player anymore (no where near actually), 
         so I can't just greedily take the first rating I see and defile the fixture with inaccurate data. 
     </p>
@@ -117,21 +117,22 @@
         he started off with a lowly 72 overall (compared to his peak rating of 90 in FIFA 22). So I decided to average the ratings through the years.
         Perhaps a smarter idea would've been to create a separate dictionary for each player and assign each season his rating for that respective FIFA game,
         but I felt that was a bit over-the-top and dull. Plus, there'd be issues with players not in certain editions of FIFA. 
-        For example, Diego Costa was in every single FIFA game from 15 to 21, but since he played in the Brazilian league in the 2021-2022 season and part of the 2022-2023 season, 
-        he has not been in the past 2 games. Therefore, I just cracked on with the idea of averaging.
+        For example, Diego Costa was in every single FIFA game from 15 to 21, but since he played in the Brazilian league, which is not in the game,
+        in both the 2021-2022 season and part of the 2022-2023 season, he has not been in the past 2 games. 
+        Therefore, I just cracked on with the idea of averaging.
     </p>
     <p class="text-block">
         After I mapped the ratings of players to lineups and fixtures, things got much, much easier. 
         Below is a table of sample data, for the 2018-19 Premier League season.
     </p>
-    <img class="image" src="ExampleTable.png" alt="Example Pandas Dataframe">
+    <img class="image" src="media/ExampleTable.png" alt="Example Pandas Dataframe">
     <p class="text-block">
         It was class. I did this for England, France, Germany, Italy, and Spain (and a couple other lesser known leagues), 
         each for 5 separate seasons, and ended up with a dataframe of over 26k+ rows.
-        I also separated the ratings based on position. See the table below for fixtures where the away team's quality was much, 
-        much higher than that of the home team's.
+        I also separated the ratings based on position. See the table below for an example dataframe, 
+        consisting of fixtures in which the away team's quality was much, much higher than that of the home team's.
     </p>
-    <img class="image" style="width: 330px !important; height: 200px;" src="Domination.png" alt="Pandas DF of Domination">
+    <img class="image" style="width: 330px !important; height: 200px;" src="media/Domination.png" alt="Pandas DF of Domination">
     <p class="text-block">
         As you can see, it's just pure domination. In the first row, the dominant team won by 9 goals. 
         Wow. In the bottom, they won by 5. 
@@ -139,16 +140,17 @@
         Quite a poor showing for them, but in the vast majority of the rows, the dominant team leathered the inferior team.
     </p>
     <p class="text-block">
-        From then on, I knew having one model wouldn't be good enough for an accurate simulator. 
+        But, that one 2-1 loss haunted me; I couldn't sleep. How would I be able to produce such shock results with only one model?
+        From then on, I knew one wouldn't be enough. 
         Football is random. 99 times out of 100, Manchester City would demolish Burton Albion. But, on that 1 sole occasion,
-        Burton Albion would do enough to hold them to a 0-0 draw at the Etihad. That's just the way the sport is. 
+        Burton Albion would do enough to hold them to a 0-0 draw at the Emptyhad. That's just the way the sport is. 
         Pretty much every other time though, 
-        it would end up <a class="text-block" href="https://www.bbc.com/sport/football/46732982">like it did</a> the last time these played one another.
+        it would end up <a class="text-block" href="https://www.bbc.com/sport/football/46732982">like it did</a> the last time these played one another at the Emptyhad.
     </p>
-    <img class="image" style="width: 312px !important; height: 200px;" src="BurtonCity.jpeg" alt="Burton vs. Manchester City">
+    <img class="image" style="width: 312px !important; height: 200px;" src="media/BurtonCity.jpeg" alt="Burton vs. Manchester City">
     <p class="text-block">
         Based on the axiom above, multiple models were needed. And, knowing what I know about football,
-        I've come to the conclusion that there are 4 types of fixtures:
+        I came to the conclusion that there are 4 types of fixtures:
     </p>
     <ol>
         <li>High goals scored, high accuracy (e.g. Barcelona 9 - 0 Blyth Spartans, Chelsea 4 - 1 Southampton, Woking 2 - 2 Solihul Moors, Juventus 3 - 0 Genoa, Inter 3 - 2 Milan).</li>
@@ -162,15 +164,37 @@
         And scenario 2 is just peak. It's something that happens infrequently, and when it does happen, the entire footballing world laughs.
         Examples of that would be Everton smashing City 4-0 a few years back, Chelsea getting bossed by Bradford City (as seen earlier), 
         and Manchester United taking a 7-0 hiding off Liverpool a few months ago (😢). 
-        Anyway, I created a normal feedforward neural network class, a custom class to fit the big dataframe I generated, and I cracked on.
     </p>
-    <img class="image" style="width: 378px !important; height: 420px;"  src="ModelAndDataset.png" alt="Model and Dataset">
+    <img class="image" style="width: 378px !important; height: 420px;"  src="media/ModelAndDataset.png" alt="Model and Dataset">
     <p class="text-block">
-        I then trained 4.5 separate models based on the types of fixtures above. 
-        I say 4.5 because I added another model that is somewhat inaccurate (e.g. Burnley 2 - 2 Manchester City), 
+        Anyway, I created a normal feedforward neural network class, a custom class to fit the big dataframe I generated, and I cracked on.
+        I filtered the big dataframe for each category in order to get my desired results, and I did. Then I saved them. Hooray!
+        I ended up with 4.5 separate models.
+        I say 4.5, because I added another model that is somewhat inaccurate (e.g. Burnley 2 - 2 Manchester City), 
         but not completely out of the realm of possibility. Now, I was done with the scorelines. Thank goodness for that. 
         Onto the match stats.
     </p>
-    <img class="image" style="width: 500px !important; height: 250px;"  src="Category4.png" alt="Training Model">
+    <img class="image" style="width: 500px !important; height: 250px;"  src="media/Category4.png" alt="Training Model">
+    <p class="text-block"> 
+        As for match stats.. possession was a really dodgy, inconsistent statistic, so I got rid of it completely.
+        I only focused on shots on and off target.
+        I created another set of models for the shots, but instead of using a dataframe of 26k rows, I used one of over 250k.
+        I paid around 40 quid for CSVs of 10 different leagues across the last 10 years and ended up with a very, 
+        very comprehensive database of half-time goals, full-time goals, shots on and off target, possession, etc. 
+        I used that to create another set of models for the shots:
+    </p>
+    <ol>
+        <li>Low goals, low on target, low shots total (🥱).</li>
+        <li>Low goals, high on target, high shots total (e.g. a bar fight ).</li>
+        <li>Low goals, low on target, high shots total (e.g. a poor quality match 🚮).</li>
+        <li>High goals, high on target, low shots total (e.g. very clinical performances).</li>
+        <li>High goals, high on target, high shots total (e.g. an all-out brawl).</li>
+    </ol>
+    <img class="image" style="width: 402px !important; height: 300px;" src="media/ShotModels.png" alt="Shot Models">
+    <p class="text-block">
+        I was chuffed with my results. Unfortunately, based on the nature of deep learning,
+        the model would return the same values for each number of goals, 
+        but I created a helper function in my API that varied the resulting values a bit.
+    </p>
     <!-- <p class="text-block">The player pool were players from FIFAs 21-23.</p> -->
 </div>
