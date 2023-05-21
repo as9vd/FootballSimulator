@@ -17,7 +17,9 @@
     gap: 2rem;
 }
 
-.text-block {
+.text-block, 
+ol, 
+li {
     font-size: 2rem;
     margin: 0rem;
     line-height: 3rem;
@@ -30,7 +32,8 @@
 
 .image {
     width: 80%;
-    border: 2px solid black;
+    border: 0.5px solid black;
+    /* border: 0px; */
 }
 
 .intro-header {
