@@ -11,7 +11,7 @@
     width: 60%;
     margin: 0 auto;
 
-    margin-top: 2.4rem;
+    margin-top: 0.6rem;
     margin-bottom: 2.4rem;
     padding: 0rem;
     gap: 2rem;
@@ -30,14 +30,14 @@
 .text-block, 
 ol, 
 li {
-    font-size: 2.2rem;
+    font-size: 2rem;
     margin: 0rem;
     line-height: 3rem;
     font-weight: 400;
 }
 
 .text-block:link {
-    text-decoration: none;
+    /* text-decoration: none; */
 }
 
 .image {
@@ -47,16 +47,18 @@ li {
 
 .intro-header {
     font-size: 4.5rem;
-    font-weight: 900;
+    font-weight: 700;
     margin: 0rem;
+    margin-top: 2.4rem;
+    margin-bottom: 2.4rem;
     padding: 0rem;
     text-align: center;
 }
 
 .video-header, .write-up-header {
-    font-size: 3rem;
+    font-size: 2.25rem;
     font-weight: 700;
-    margin-bottom: 0rem;
+    margin-bottom: -1.8rem;
     /* text-decoration-line: underline; */
 }
 
