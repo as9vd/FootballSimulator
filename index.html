@@ -9,6 +9,10 @@
 </head>
 <h1 class="intro-header">Football Simulator Game (Version 1.0) 🌍</h1>
 <div class="container">
+    <h2 class="disclaimer-header">Disclaimer:</h2>
+    <p class="disclaimer-text-block">
+        The CSS for this page is not rendered optimally on Safari. For the best reading experience, I recommend using Google Chrome.
+    </p>
     <h2 class="video-header">Videos:</h2>
     <div class="video-container">
         <p class="text-block">
@@ -18,6 +22,7 @@
         </p>
         <div class="video-wrapper">
             <video controls="controls" width="600" muted="" src="media/GameSimulation.mp4" type="video/mp4" class="demo-video"></video>
+            <p class="caption">Video 1: An Example Runthrough</p>
         </div>
         <p class="text-block">
             Below is a quick run-through of most the React and Flask code. 
@@ -25,6 +30,7 @@
         </p>
         <div class="video-wrapper">
             <video controls="controls" width="600" muted="" src="media/CodeDemo.mp4" type="video/mp4" class="demo-video"></video>
+            <p class="caption">Video 2: Project Code</p>
         </div>
     </div>
     <h2 class="write-up-header">Write-Up:</h2>
@@ -46,7 +52,10 @@
             look below to see the impenetrable strategy I used to validate input (in these 2 instances, 
             I was checking if it somewhat resembled 'Timo Werner' or 'Raul Jimenez'):
         </p>
-        <img class="image" src="media/LackOfTrie.png" alt="Lack of Tries">
+        <div class="photo-container">
+            <img class="image" src="media/LackOfTrie.png" alt="Lack of Tries">
+            <p class="caption">Figure 1: Manual Checking of Input</p>
+        </div>
         <p class="text-block">
             🙈 This is why algorithms are important. Had I known about tries/prefix trees/enums/etc., 
             I would've avoided writing 1000+ lines of poor quality code like this (yes, I did that for every single player).
@@ -66,7 +75,10 @@
             (not really, I just wanted to make mention of this), but that's not the case. 
             For example, look at the result below:
         </p>
-        <img class="image" src="media/BradfordChelsea.png" alt="Bradford vs. Chelsea">
+        <div class="photo-container">
+            <img class="image" src="media/BradfordChelsea.png" alt="Bradford vs. Chelsea">
+            <p class="caption">Figure 2: Chelsea Got Battered</p>
+        </div>
         <p class="text-block">
             For the uniniated, Bradford City were in the 3rd division of English football and had finished 7th place (and they are now in the 4th division). 
             Chelsea, on the other hand, were in the 1st division (Premier League) and actually won the league in dominant fashion that year. 
@@ -74,7 +86,10 @@
             Despite the fact that they've been cack pretty much the entirety of the current season (2022-2023), they are still a much, 
             much bigger side than Bradford City (🥳 what an accomplishment!). Just look at the side they fielded:
         </p>
-        <img class="image" style="width: 275px !important; height: 275px;" src="media/BradfordChelseaLineup.png" alt="Lineup">
+        <div class="photo-container">
+            <img class="image" style="width: 275px !important; height: 275px;" src="media/BradfordChelseaLineup.png" alt="Lineup">
+            <p class="caption">Figure 3: Chelsea - Bradford Line-Ups</p>
+        </div>
         <p class="text-block">
             They had 3 world-class players on the pitch (Hazard, Cesc, Azpilicueta), along with various other quality players (Ramires, Oscar, Remy, Willian, Cahill).
             Even the likes of Salah and Zouma, both of whom were fairly underwhelming for Chelsea (to be fair to Zouma, he suffered an ACL injury early on during his time there), 
@@ -82,7 +97,10 @@
             amongst the likes of Dalglish, Liddell, Rush, and Jay Spearing, whilst Zouma is currently West Ham's best defender. Point is, they had quality all over the park,
             and they had enough firepower to smash the jobbers of Bradford City (no offence) 4 or 5 nil.  
         </p>
-        <img class="image" style="width: 300px !important; height: 200px;" src="media/Hazard.jpeg" alt="Hazard">
+        <div class="photo-container">
+            <img class="image" style="width: 300px !important; height: 200px;" src="media/Hazard.jpeg" alt="Hazard">
+            <p class="caption">Figure 4: Eden Hazard</p>
+        </div>
         <p class="text-block">
             But, this is football. Shocks happen fairly often (usually not this level of shock though), 
             so aggregating goals and shots is not the best strategy.
@@ -95,7 +113,10 @@
             shots, possession, fouls, and goals with the quality of a side/collection of players. 
             I downloaded some CSV sets off of Kaggle for the past 9 FIFA games.
         </p>
-        <img class="image" style="width: 188px !important; height: 150px;" src="media/FifaCSVs.png" alt="CSVs">
+        <div class="photo-container">
+            <img class="image" style="width: 188px !important; height: 150px;" src="media/FifaCSVs.png" alt="CSVs">
+            <p class="caption">Figure 5: Files</p>
+        </div>
         <p class="text-block">
             For the lineup information, I used api-football.com. I used this API service to get fixture data from the 2015-2016 season onward, 
             matching the FIFA data. From the fixtures, I collected the stats associated with each individual match (e.g. shots on target, fouls, goals, etc.),
@@ -111,7 +132,10 @@
             Secondly, FIFA player ratings can vary widely through the years, especially across the span of 9 FIFA games. For example, 
             below is Jerome Boateng:
         </p>
-        <img class="image" style="width: 356px !important; height: 200px;" src="media/JeromeBoateng.jpeg" alt="Jerome Boateng">
+        <div class="photo-container">
+            <img class="image" style="width: 356px !important; height: 200px;" src="media/JeromeBoateng.jpeg" alt="Jerome Boateng">
+            <p class="caption">Figure 6: Jerome Boateng</p>
+        </div>
         <p class="text-block">
             On his day, he was a magnificent player. Legendary footballer. 
             2 time European Cup winner, World Cup winner, and I don't even know how many Bundesliga titles he's won. 
@@ -121,7 +145,10 @@
             Guy was incredible in his prime. Quick, strong, fantastic at playing out from the back, and a very, very good leader.
             The only stain on his footballing career is that he played for Manchester City (🤮).
         </p>
-        <img class="image" style="width: 396px !important; height: 230px;" src="media/BoatengRatings.png" alt="Jerome Boateng Ratings">
+        <div class="photo-container">
+            <img class="image" style="width: 396px !important; height: 230px;" src="media/BoatengRatings.png" alt="Jerome Boateng Ratings">
+            <p class="caption">Figure 7: Boateng's FIFA 16 Rating</p>
+        </div>
         <p class="text-block">
             Unfortunately, nowadays, he's a bit crap. Having suffered serious injuries during his last few seasons at Bayern Munich, 
             starting in the 2016-17 season, 
@@ -130,14 +157,20 @@
             Overall, Germany's World Cup performance was shocking, and it pretty much ended his national team career, 
             as it also (temporarily) did the likes of Mats Hummels and Thomas Muller.
         </p>
-        <video controls="controls" src="media/BoatengRed.mp4" type="video/mp4"></video>
+        <div class="video-wrapper">
+            <video controls="controls" src="media/BoatengRed.mp4" type="video/mp4"></video>
+            <p class="caption">Video 3: Boateng's Poor World Cup</p>
+        </div>
         <p class="text-block">
             He had a bit of a renaissance year in the 2019-2020 season, as Bayern Munich won the treble, 
             but since then, he's just not been the same player. 
             He's constantly making errors in big matches, he's getting slower, and Lyon are looking to get rid of him.
             Not a good end to such an incredible career.
         </p>
-        <img class="image" src="media/BoatengNow.png" alt="Jerome Boateng Rating Now">
+        <div class="photo-container">
+            <img class="image" src="media/BoatengNow.png" alt="Jerome Boateng Rating Now">
+            <p class="caption">Figure 8: The Decline</p>
+        </div>
         <p class="text-block">
             The reason I've just written all of that is not because I like Jerome Boateng. He played for Manchester City, 
             and he's generally not a good bloke in his private life, so no, I don't like him.
@@ -156,13 +189,18 @@
             in both the 2021-2022 season and part of the 2022-2023 season, he has not been in the past 2 games. 
             Therefore, I just cracked on with the idea of averaging.
         </p>
-        <!-- <img class="image" style="width: 225px !important; height: 150px;"  src="media/CostaSkrtel.jpeg" alt="Skrtel"> -->
-        <video controls="controls" width="300" muted="" src="media/Costa.mp4" type="video/mp4" class="demo-video"></video>
+        <div class="video-wrapper">
+            <video controls="controls" width="300" muted="" src="media/Costa.mp4" type="video/mp4" class="demo-video"></video>
+            <p class="caption">Video 4: Diego Costa's Finest Moment</p>
+        </div>
         <p class="text-block">
             After I mapped the ratings of players to both lineups and fixtures, things got much, much easier. 
             Below is a dataframe of the 2018-19 Premier League season.
         </p>
-        <img class="image" src="media/ExampleTable.png" alt="Example Pandas Dataframe">
+        <div class="photo-container">
+            <img class="image" src="media/ExampleTable.png" alt="Example Pandas Dataframe">
+            <p class="caption">Figure 9: Example Pandas Dataframe</p>
+        </div>
         <p class="text-block">
             It was class. I did this for England, France, Germany, Italy, and Spain (and a couple other lesser known leagues), 
             each for 5 separate seasons, and ended up with a dataframe of over 26k+ rows.
@@ -170,7 +208,10 @@
             See the table below for an example dataframe, 
             consisting of fixtures in which the away team's quality was much, much higher than that of the home team's.
         </p>
-        <img class="image" style="width: 330px !important; height: 200px;" src="media/Domination.png" alt="Pandas DF of Domination">
+        <div class="photo-container">
+            <img class="image" style="width: 330px !important; height: 200px;" src="media/Domination.png" alt="Pandas DF of Domination">
+            <p class="caption">Figure 10: Lopsided Fixtures</p>
+        </div>
         <p class="text-block">
             As you can see, it's just pure domination. In the first row, the dominant team won by 9 goals. 
             Wow. In the bottom, they won by 5. 
@@ -185,7 +226,10 @@
             Pretty much every other time though, 
             it would end up <a class="text-block" href="https://www.bbc.com/sport/football/46732982">like it did</a> the last time these played one another at the Etihad.
         </p>
-        <img class="image" style="width: 312px !important; height: 200px;" src="media/BurtonCity.jpeg" alt="Burton vs. Manchester City">
+        <div class="photo-container">
+            <img class="image" style="width: 312px !important; height: 200px;" src="media/BurtonCity.jpeg" alt="Burton vs. Manchester City">
+            <p class="caption">Figure 11: A Hiding</p>
+        </div>
         <p class="text-block">
             Based on the axiom above, multiple models were needed. And, having followed the sport for ages,
             I've sussed out the 4 categories that any given match, ever, can fall under:
@@ -203,7 +247,10 @@
             Examples of that would be Everton smashing City 4-0 a few years back, Chelsea getting bossed by Bradford City (as seen earlier), 
             and Manchester United taking a 7-0 hiding off Liverpool a few months ago (😢). 
         </p>
-        <img class="image" style="width: 378px !important; height: 420px;"  src="media/ModelAndDataset.png" alt="Model and Dataset">
+        <div class="photo-container">
+            <img class="image" style="width: 378px !important; height: 420px;"  src="media/ModelAndDataset.png" alt="Model and Dataset">
+            <p class="caption">Figure 12: Snippet of PyTorch Code</p>
+        </div>
         <p class="text-block">
             Anyway, I created a feedforward neural network class, and a custom class to fit the big dataframe I generated.
             I filtered the big dataframe for each category of match in order to get my desired results, and I did. Then I saved them. Hooray!
@@ -212,7 +259,10 @@
             but results not completely out of the realm of possibility. Now, I was done with the scorelines. Thank goodness for that. 
             Onto the match stats.
         </p>
-        <img class="image" style="width: 500px !important; height: 250px;"  src="media/Category4.png" alt="Training Model">
+        <div class="photo-container">
+            <img class="image" style="width: 500px !important; height: 250px;"  src="media/Category4.png" alt="Training Model">
+            <p class="caption">Figure 13: Category 4 Training</p>
+        </div>
         <p class="text-block"> 
             As for match stats.. possession was a really dodgy, inconsistent statistic, so I got rid of it completely.
             I only focused on shots on and off target.
@@ -228,7 +278,10 @@
             <li>High goals, high on target, low shots total (e.g. very clinical performances).</li>
             <li>High goals, high on target, high shots total (e.g. an all-out brawl).</li>
         </ol>
-        <img class="image" style="width: 402px !important; height: 300px;" src="media/ShotModels.png" alt="Shot Models">
+        <div class="photo-container">
+            <img class="image" style="width: 402px !important; height: 300px;" src="media/ShotModels.png" alt="Shot Models">
+            <p class="caption">Figure 14: Fixture Type 5</p>
+        </div>
         <p class="text-block">
             I was chuffed with my results. Unfortunately, based on the nature of deep learning,
             the model would return the same values for each number of goals, 
@@ -241,21 +294,30 @@
             That is why I only limited it to a 3-year window. Also, I wanted it to be somewhat "with the times" as well. 
             Here's what the interface looked like, which is what I modelled the selection page off of.
         </p>
-        <img class="image" src="media/Interface.png" alt="Interface">
+        <div class="photo-container">
+            <img class="image" src="media/Interface.png" alt="Interface">
+            <p class="caption">Figure 15: Interface of Selection Screen</p>
+        </div>
         <p class="text-block">
             That was pretty much it for the data gathering and cleaning. After, I began to create the React app and the Flask API.
             The React app.. I won't get into detail. Just look at the video(s) if you want to see what the frontend looked like.
             The Flask API was fairly simple. For each step on the website, I had a corresponding API call that supplied the functionality.
             For example, below is the endpoint I used to get the final score for the rounds.
         </p>
-        <img class="image" src="media/GetResultEndpoint.png" alt="Result Endpoint">
+        <div class="photo-container">
+            <img class="image" src="media/GetResultEndpoint.png" alt="Result Endpoint">
+            <p class="caption">Figure 16: Result Endpoint</p>
+        </div>
         <p class="text-block">
             I had a similar function/endpoint for getting the total shots on and off target. 
             Beyond that, the other highlights of the API were fetching the pool of players and generating the random teams.
             For each position, 7 random players are shown as options, and when the players are picked, they're removed from the pool permanently.
             This means the bots won't accidentally take one of the user's players, so you won't see a player on two different teams, thankfully.
         </p>
-        <img class="image" src="media/PoolCode.png" alt="Pool of Players Code">
+        <div class="photo-container">
+            <img class="image" src="media/PoolCode.png" alt="Pool of Players Code">
+            <p class="caption">Figure 17: Pool of Players Code</p>
+        </div>
         <p class="text-block">
             Anyway, that's pretty much it for the functionality of the program. 
             In my modest opinion, I think it was a very good project. I could've made it even better had I (amongst many other things):
