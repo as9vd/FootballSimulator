@@ -17,7 +17,7 @@
     <div class="video-container">
         <p class="text-block">
             For those who don't want to read the long-winded write-up,
-            below is the video of an example runthrough.
+            below is a video of an example runthrough.
             Improvements to be made, but I'm pleased with the progress so far.
         </p>
         <div class="video-wrapper">
@@ -41,7 +41,7 @@
             This is a football simulator game, centered around strategy and statistics. In this immersive experience, 
             players are challenged with the task of assembling the ultimate team of footballers within a limited budgetary constraint (£850). 
             Each footballer's quality is reflected in his price, with higher-rated players costing more.
-            Once the team has been meticulously crafted, players dive into a tournament featuring 128 teams. Among them, 127 teams are dynamically generated, 
+            Once the teams have been meticulously crafted, players dive into a tournament featuring 128 teams. Among them, 127 teams are dynamically generated, 
             each employing a unique formation and the best possible players from their assigned pool.
         </p>
         <p class="text-block">
@@ -80,10 +80,11 @@
             <p class="caption">Figure 2: Chelsea Got Battered</p>
         </div>
         <p class="text-block">
-            For the uniniated, Bradford City were in the 3rd division of English football and had finished 7th place (and they are now in the 4th division). 
+            For the uniniated, at the time, Bradford City were in the 3rd division of English football and had finished the season in 7th place. 
+            They are now in the 4th division. 
             Chelsea, on the other hand, were in the 1st division (Premier League) and actually won the league in dominant fashion that year. 
             Additionally, Chelsea are (unfortunately) a big club that have won 2 European Cups and 5 1st division titles. 
-            Despite the fact that they've been cack pretty much the entirety of the current season (2022-2023), they are still a much, 
+            Despite the fact that they've been poor pretty much the entirety of the current season (2022-2023), they are still a much, 
             much bigger side than Bradford City (🥳 what an accomplishment!). Just look at the side they fielded:
         </p>
         <div class="photo-container">
@@ -106,7 +107,7 @@
             so aggregating goals and shots is not the best strategy.
             So we cannot use goals scored, or shots on target, or possession, or any of these other (fairly) arbitrary statistics to measure a team's quality. 
             I really thought measuring goals scored across seasons would be a decent measure of a team's quality, but it really does not work for the lesser leagues.
-            APOEL, a club in the Cypriot First Division, regularly demolish their domestic opposition, 
+            For example, APOEL, a club in the Cypriot First Division, regularly demolish their domestic opposition, 
             but they, in turn, get battered by foreign opposition in the Champions League.
             Therefore, I did something I was more comfortable with, and something that made sense.
             I decided to use the FIFA ratings of individual players and map them to historical match data to correlate 
@@ -176,7 +177,7 @@
             and he's generally not a good bloke in his private life, so no, I don't like him.
             The reason I've just went on this tangent about Boateng is because he has changed as a player through the years,
             in a bad way. If I am mapping ratings to Lyon matches, it is not fair that I map Boateng's FIFA 17 rating, when he was fantastic for Bayern Munich,
-            to a Ligue 1 match in 2023, in which he likely performed poorly.
+            to a Ligue 1 match in 2023, in which he likely performed poorly for Lyon. 
             He doesn't perform like a 90-rated player anymore (no where near actually), 
             so I can't just greedily take the first rating I see and defile the fixture with inaccurate data. 
         </p>
@@ -184,9 +185,9 @@
             It is the same in reverse. N'Golo Kante has been one of the best midfielders in the world the past 6 years, but in FIFA 15,
             he started off with a lowly 72 overall (compared to his peak rating of 90 in FIFA 22). So I decided to average the ratings through the years.
             Perhaps a smarter idea would've been to create a separate dictionary for each player and assign each season his rating for that respective FIFA game,
-            but I felt that was a bit over-the-top and dull. Plus, there'd be issues with players not in certain editions of FIFA. 
-            For example, Diego Costa was in every single FIFA game from 15 to 21, but since he played in the Brazilian league, which is not in the game,
-            in both the 2021-2022 season and part of the 2022-2023 season, he has not been in the past 2 games. 
+            but that feels a bit over-the-top and dull. Plus, there'd be issues with players not in certain editions of FIFA. 
+            For example, Diego Costa was in every single FIFA game from 15 to 21, but since he played in the Brazilian league (which is not in the game)
+            for both the 2021-2022 season and part of the 2022-2023 season, he has not been in the past 2 games. 
             Therefore, I just cracked on with the idea of averaging.
         </p>
         <div class="video-wrapper">
@@ -221,10 +222,10 @@
         <p class="text-block">
             But, that one 2-1 loss haunted me; I couldn't sleep. How would I be able to replicate such shock results with only one model?
             From then on, I knew one wouldn't be enough. 
-            Football is random. 99 times out of 100, Manchester City would demolish Burton Albion. But, on that 1 sole occasion,
-            Burton Albion would do enough to hold them to a 0-0 draw at the Etihad. That's just the way the sport is. 
+            Football is random. 99 times out of 100, Manchester City demolish Burton Albion. But, on that 1 sole occasion,
+            the stars align, and Burton Albion do enough to hold them to a 0-0 draw. That's just the way the sport is. 
             Pretty much every other time though, 
-            it would end up <a class="text-block" href="https://www.bbc.com/sport/football/46732982">like it did</a> the last time these played one another at the Etihad.
+            it would end up <a class="text-block" href="https://www.bbc.com/sport/football/46732982">like it did</a> the last time these played one another.
         </p>
         <div class="photo-container">
             <img class="image" style="width: 312px !important; height: 200px;" src="media/BurtonCity.jpeg" alt="Burton vs. Manchester City">
