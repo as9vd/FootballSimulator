@@ -15,7 +15,7 @@
     margin-top: 0.6rem;
     margin-bottom: 2.4rem;
     padding: 0rem;
-    gap: 2.5rem;
+    gap: 1.2rem;
 }
 
 .write-up-container {
@@ -64,7 +64,7 @@ li {
 .video-header, .write-up-header, .disclaimer-header {
     font-size: 2.4rem;
     font-weight: 700;
-    margin-bottom: -1.8rem;
+    /* margin-bottom: -1.8rem; */
     /* text-decoration-line: underline; */
 }
 
@@ -100,7 +100,7 @@ li {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: -1rem;
+    /* margin-bottom: -1rem; */
 }
 
 .caption {
